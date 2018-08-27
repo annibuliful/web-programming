@@ -1,0 +1,94 @@
+/**
+* force change
+*/
+@import url('https://fonts.googleapis.com/css?family=Pattaya');
+*{
+  font-family: 'Pattaya', sans-serif;
+}
+body {
+  background-image: linear-gradient(#81d4fa, rgb(53, 208, 218));
+}
+
+p {
+  display: block;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+/*
+* layout
+*/
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border-radius: 50px;
+}
+
+div.card {
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .05);
+}
+
+div.card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+}
+
+h1.header {
+  color: #F3A83B;
+}
+
+h1.style {
+  color: #377D22;
+}
+
+h1.topic {
+  color: rgb(162, 162, 162);
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+a {
+  color: blue;
+}
+
+.center {
+  text-align: center;
+  display: block;
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+/**
+* for responsvie
+*/
+@media only screen and (max-width: 600px) {
+    div.card{
+      width: 90%;
+    }
+}
