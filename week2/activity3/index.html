@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h2>Please fill in your personal info</h2>
+  <form action="thanks.html" autocomplete="off">
+    <div class="container">
+      <div class="border">
+        <div class="label">
+          ID:
+        </div>
+        <div class="input">
+          <input type="text" name="ID" placeholder="Student ID" maxlength="7"pattern="[1-9]{7}" required>
+        </div>
+      </div>
+      <div class="border">
+        <div class="label">
+          Firstname:
+        </div>
+        <div class="input">
+          <input type="text" name="firstname" placeholder="Firstname"pattern="[A-Za-z]+" required>
+        </div>
+      </div>
+      <div class="border">
+        <div class="label">
+          Surname:
+        </div>
+        <div class="input">
+          <input type="text" name="surname"placeholder="Surname"pattern="[A-Za-z]+" required>
+        </div>
+      </div>
+      <div class="border">
+        <div class="label">
+          Birthday:
+        </div>
+        <div class="input">
+          <input type="date" name="birthday" placeholder="Birthday" required>
+        </div>
+      </div>
+      <div class="border">
+        <div class="label">
+          Gender:
+        </div>
+        <div class="input">
+          <span><input type="radio" name="gender" value="male">&nbsp; Male<br></span>
+          <span><input type="radio" name="gender" value="female">&nbsp; Female</span>
+        </div>
+      </div>
+      <div class="border">
+        <div class="label">
+          Hobbies:
+        </div>
+        <div class="input">
+          <input type="checkbox" name="hobbies" value="footbal"> Football<br>
+          <input type="checkbox" name="hobbies" value="computer_game"> Computer game<br>
+          <input type="checkbox" name="hobbies" value="diving"> Diving<br>
+          <input type="checkbox" name="hobbies" value="karaoke"> Karaoke<br>
+        </div>
+      </div>
+      <div class="border">
+        <div class="label">
+          My email:
+        </div>
+        <div class="input">
+          <input type="email" name="email"placeholder="Email" required>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="submit">Submit</button>
+  </form>
+</body>
+
+</html>
