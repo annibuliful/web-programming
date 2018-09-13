@@ -258,3 +258,20 @@ footer {
   padding-top: 5px;
   padding-bottom: 10px;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
+.intable-img{
+  width: 350px;
+}
+
+.contact-table{
+  margin-top: 50px;
+}
+
+.content-table{
+  margin-left: 50px;
+
+}
+
