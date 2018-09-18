@@ -40,3 +40,8 @@ body {
 .center{
   text-align: center;
 }
+
+.space-updown{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
