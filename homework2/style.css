@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Spirax');
+body{
+  margin: 0;
+}
+*{
+  font-family: 'Spirax', cursive;
+}
+
+/*
+* text
+*/
+h1{
+  margin: 10%;
+  text-align: center;
+}
+
+/*
+* button
+*/
+
+button{
+  width: 20vw;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  margin-top: 60px;
+  background-color: #05a7ed;
+  font-size: 30px;
+  border-color: #05a7ed;
+  border-radius: 5px;
+  color: white;
+}
+/*
+* layout
+*/
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin: 10%;
+}
+
+.col-12{
+  width: 100%;
+}
+
+.col-6{
+  width: 50%;
+}
+.col-1{
+  width: 8.33%
+}
+
+.offset-7{
+  margin-left: 25vw;
+}
+
+.col-4{
+  width: 33.33%;
+}
+
+/*
+* input
+*/
+
+input#inputNumber{
+  width: 80%;
+  height: 40px;
+  font-size: 25px;
+  padding-left: 10px;
+  border-radius: 10px;
+  outline: none;
+  border-color: #717171;
+}
+
+
+/*
+* image
+*/
+
+img.header{
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+}
+
+
+/*
+* responsive media screen
+*/
+
+@media only screen and (max-width: 800px) {
+    .col-6{
+      width: 100%;
+    }
+    input#inputNumber{
+      width: 50vw;
+    }
+    .col-4{
+      width: 50%;
+    }
+    .offset-7{
+      margin-left: 10vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    input#inputNumber{
+      width: 50vw;
+    }
+}
