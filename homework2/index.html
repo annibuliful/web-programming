@@ -1,27 +1,80 @@
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="lucky.js"></script>
-  </head>
-  <body>
-    <h1>
-      Lucky Algorithm for Phone Number
-    </h1>
-    <div class="container">
-      <div class="col-1 offset-7">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="lucky.js"></script>
+</head>
+
+<body>
+  <h1>
+    Lucky Algorithm for Phone Number
+  </h1>
+  <div class="container">
+    <div class="col-12">
+      <h2 class="text-center">Uncheck number which you don't want</h2>
+      <div class="row offset-7">
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(45,this)">45
+        </div>
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(46,this)">46
+        </div>
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(78,this)">78
+        </div>
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(87,this)">87
+        </div>
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(39,this)">39
+        </div>
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(93,this)">93
+        </div>
+        <div class="col-1">
+          <input type="checkbox" id="myCheck" onclick="unSelectNumber(56,this)">56
+        </div>
       </div>
-      <div class="col-4">
-        <input type="text" id="inputNumber" readonly>
-      </div>
-      <div class="col-12">
-        <button id="predict" onClick="onGeneratePhoneNumber()">Normal Generate</button>
-      </div>
-      <div class="col-12">
-        <button id="predict">Super Generate</button>
-      </div>
-      <div class="col-12"></div>
     </div>
-  </body>
+    <div class="col-1 offset-7">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+    </div>
+    <div class="col-4">
+      <input type="text" id="inputNumber" readonly>
+    </div>
+    <div class="col-12">
+      <button id="predict" onClick="onGeneratePhoneNumber()">Generate</button>
+    </div>
+    <div class="col-12"></div>
+  </div>
+  <br>
+  <h1> Choose Lucky Number which you want</h1>
+  <div class="container">
+    <div class="col-12">
+      <h2 class="text-center">45, 46, 78, 87, 39, 93, 56</h2>
+      <br>
+    </div>
+    <div class="col-1 offset-7">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+    </div>
+    <div class="col-4">
+
+      <input type="text" id="result" readonly>
+      <h5 id="solution"></h5>
+    </div>
+    <div class="center">
+      Input Lucky Number <input type="text" id="input">
+    </div>
+    <div class="col-12">
+      <button id="predict" onClick="generateFromNumber()">Generate</button>
+    </div>
+    <div class="col-12"></div>
+  </div>
+</body>
+
 </html>

@@ -10,10 +10,11 @@ body{
 * text
 */
 h1{
-  margin: 10%;
   text-align: center;
 }
-
+.text-center{
+  text-align:center;
+}
 /*
 * button
 */
@@ -37,7 +38,8 @@ button{
   display: flex;
   flex-wrap: wrap;
   width: 90vw;
-  margin: 10%;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .col-12{
@@ -52,18 +54,32 @@ button{
 }
 
 .offset-7{
-  margin-left: 25vw;
+  margin-left: 25%;
+}
+
+.offset-9{
+  margin-left: 50%;
+}
+.center{
+  margin: auto;
+    width: 50%;
+    padding: 10px;
 }
 
 .col-4{
   width: 33.33%;
 }
 
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
 /*
 * input
 */
 
-input#inputNumber{
+input{
   width: 80%;
   height: 40px;
   font-size: 25px;
