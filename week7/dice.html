@@ -92,6 +92,7 @@
   });
 
   function rollTheDice(RoundText) {
+    localStorage.clear()
     let i, j, faceValue, output = '',diceCount = 3;
     for (j = 1; j <= Number(RoundText); j++) {
       output += j + "." + "&nbsp";
@@ -103,14 +104,20 @@
         valuesOfDices.push(faceValue)
         if (faceValue !== 1) {
           number = faceValue - 1;
-          console.log(number)
         }else{
           number = faceValue
         }
         output += "&#x268" + number + "; "; //Get dice face
       }
-      localStorage.setItem(j, valuesOfDices)
       output += "<br/>";
+      const sum = valuesOfDices.reduce(function(previous , next){
+        return previous + next
+      })
+
+      if(sum >= 12){
+        valuesOfDices.push(sum)
+        localStorage.setItem(j, valuesOfDices)
+      }
     }
 
     return output;
