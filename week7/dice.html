@@ -1,0 +1,116 @@
+<style>
+    #dice {
+        font-size: 4.6rem;
+    }
+
+    div {
+        text-align: center;
+    }
+
+    .numberInput {
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .box {
+        display: box;
+        height: 1000px;
+        display: -moz-box;
+        -moz-box-orient: horizontal;
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        display: box;
+        box-orient: horizontal;
+    }
+
+    .box .column1 {
+        -moz-box-flex: 1.0;
+        -webkit-box-flex: 1.0;
+        -ms-flex: 1.0;
+        box-flex: 1.0;
+        background: #FDF3E7;
+    }
+
+    .box .column2 {
+        -moz-box-flex: 1.0;
+        -webkit-box-flex: 1.0;
+        -ms-flex: 1.0;
+        box-flex: 1.0;
+    }
+
+    #searchResult {
+        font-size: 1.5rem;
+        text-align: left;
+        padding-left: 30px
+    }
+</style>
+<div class="box">
+    <div class="column1">
+        <br />
+        <h1>Dice Roller</h1>
+
+        <h2>Please input number of round</h2>
+        <input type="number" min="1" value="1" class="numberInput" id="roundInput">
+        <input id="rollbtn" type="button" class="numberInput" value="Roll">
+        <div id="dice"></div>
+    </div>
+    <div class="column2">
+        <br />
+        <h1>Search</h1>
+        <h2>Please input #round to search</h2>
+        <input type="number" min="1" value="1" class="numberInput" id="numberInput">
+        <input type="button" class="numberInput" value="Search" id="roundSearch">
+        <div id="searchResult"></div>
+    </div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      $("#rollbtn").click(function(){
+        const listOfDices = rollTheDice($("#roundInput").val())
+        $("#dice").html(listOfDices)
+      })
+
+      $("#roundSearch").click(function(){
+        let html = `Round Number ${$("#numberInput").val()}`;
+        const data = searchTheDice($("#numberInput").val())
+        const listOfValue = data.split(',')
+        html = html + listOfValue.map(function(value , index){
+          return `<p>Dice ${index + 1} = ${value}</p>`
+        }).reduce(function(previous , next){
+          return previous + next
+        })
+        $("#searchResult").html(html)
+      })
+
+        //Use JQuery to get value from HTML elements
+        //Use JQuery to add events (e.g. click) to HTML elements
+        //Output the dice faces to <div id="dice"></div>
+        //Output the list of faces for search to <div id="searchResult"></div>
+    });
+
+    function rollTheDice(RoundText) {
+        let i, j,faceValue,output = '',diceCount = 3;
+        for (j = 1; j <= Number(RoundText); j++) {
+            output += j + "." + "&nbsp";
+            let valuesOfDices = []
+            for (i = 0; i < diceCount; i++) {
+                faceValue = Math.floor((Math.random() * 6))
+                valuesOfDices.push(faceValue)
+                // faceValue = faceValue - 1;
+                output += "&#x268" + faceValue + "; "; //Get dice face
+            }
+            localStorage.setItem(j , valuesOfDices)
+            output += "<br/>";
+        }
+
+        return output;
+    }
+
+    function searchTheDice(RoundText) {
+      console.log(RoundText)
+      return localStorage.getItem(RoundText)
+    }
+</script>
