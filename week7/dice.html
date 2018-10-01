@@ -78,7 +78,12 @@
       const data = searchTheDice($("#numberInput").val())
       const listOfValue = data.split(',')
       html = html + listOfValue.map(function(value, index) {
-        return `<p>Dice ${index + 1} = ${value}</p>`
+        if(index !== (listOfValue.length -1)){
+          return `<p>Dice ${index + 1} = ${value}</p>`;
+        }else{
+          return '';
+        }
+
       }).reduce(function(previous, next) {
         return previous + next
       })
@@ -110,6 +115,7 @@
         output += "&#x268" + number + "; "; //Get dice face
       }
       output += "<br/>";
+
       const sum = valuesOfDices.reduce(function(previous , next){
         return previous + next
       })
