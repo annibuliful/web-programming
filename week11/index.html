@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+
+  // The location of Uluru
+  var uluru = {lat: 13.794855799999999, lng: 100.32464850000001};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 18, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+  var triangleCoords = [
+          {lat: 13.795057, lng: 100.324466},
+          {lat: 13.795057, lng: 100.324732},
+          {lat: 13.794682, lng: 100.324737},
+          {lat: 13.794674, lng: 100.324785},
+          {lat: 13.794268, lng: 100.324788},
+          {lat: 13.794263, lng: 100.324734},
+          {lat: 13.793937, lng: 100.324731},
+          {lat: 13.793934, lng: 100.324457},
+        ];
+        var bermudaTriangle = new google.maps.Polygon({
+                paths: triangleCoords,
+                strokeColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: '#FF0000',
+                fillOpacity: 0.35
+              });
+              bermudaTriangle.setMap(map);
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSEMw55XQtWUw2oBIXRXAYW80GLgLxm3k&callback=initMap">
+    </script>
+  </body>
+</html>
