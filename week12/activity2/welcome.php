@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start();ob_start();?>
 <!DOCTYPE html>
  <html>
     <head>
@@ -12,7 +12,14 @@
         <div class="container">
 
         <?php
-            echo "<p style=\"font-weight: bold; font-size: 60px\">WELCOME TO OUR SYSTEM</p>"
+        if($_SESSION['loged'] == true){
+          echo "<h1 style=\"font-weight: bold; font-size: 60px\">WELCOME TO OUR SYSTEM</h1>";
+        }else{
+          echo "<h1>Please back to login</h1>
+                <a href=\"index.php\">Back to Login</a>";
+        }
+
+
         ?>
 
 	</div>

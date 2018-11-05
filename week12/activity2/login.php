@@ -32,7 +32,8 @@ function checkLogin($user , $pass){
 					if(isset($_POST["username"]) && isset($_POST['password'])){
 						if(checkLogin($_POST["username"],$_POST['password'])){
 							$_SESSION['errormsg'] = "";
-							header( "url=/welcome.php" );
+							$_SESSION['loged'] = true;
+							header( "location:welcome.php" );
 						}else{
 							$_SESSION['errormsg'] = "Wrong username or password";
 							echo"<p>Wrong Username or Password</p>
