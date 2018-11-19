@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: none;
+}
+#login-form {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+}
+
+#header {
+  padding: 25px;
+  display: block;
+  margin: auto;
+}
+input {
+  width: 92%;
+  height: 25px;
+  font-size: 18px;
+  padding-left: 10px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(182, 182, 182);
+}
+
+#login-button {
+  display: block;
+  width: 60%;
+  height: 25px;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: #0149db;
+  color: white;
+  margin: auto;
+}
+#login-form > div {
+  padding: 20px;
+  width: 100%;
+}

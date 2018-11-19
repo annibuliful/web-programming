@@ -12,7 +12,7 @@
         <div class="container">
 
         <?php
-        if($_SESSION['loged'] == true){
+        if(isset($_SESSION['loged'])){
           echo "<h1 style=\"font-weight: bold; font-size: 60px\">WELCOME TO OUR SYSTEM</h1>";
         }else{
           echo "<h1>Please back to login</h1>

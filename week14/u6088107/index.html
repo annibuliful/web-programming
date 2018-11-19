@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+      <h4>Place Id: <input type="number" id="id"></h4>
+      <button id="submit">submit</button>
+      <br>
+      <br>
+    <div id="map"></div>
+    <script>
+      var map;
+      function setMarker(lat,lng,title){
+        var marker = new google.maps.Marker({
+            position: {lat, lng},
+            title
+        });
+        marker.setMap(map);
+        console.log(map);
+      }
+      function initMap() {
+        
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 13.794438, lng: 100.324733},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWCeMI4QmKOawb9kym3uZ3SiJMCJ8pFVY&callback=initMap"
+    async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
