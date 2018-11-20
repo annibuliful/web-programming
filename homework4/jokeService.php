@@ -1,18 +1,62 @@
 <?php
 
+
 /*
- get random joke from chuck norris API
+  transform data from array of object to JSON
 */
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "http://api.icndb.com/jokes/random/1?escape=javascript");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-$json = curl_exec($ch);
-curl_close($ch);
+function responseData($data){
+    header('Content-type: application/json; charset=utf-8');
+    header('access-control-allow-origin: *');
+    return json_encode($data);
+}
 
-$data = json_decode($json);
 
-// show only chuck norris joke
-foreach($data->value as $value){
-  print_r($value->joke);
+/*
+  read all jokes from JSON file
+*/
+function getAllJokes(){
+  $arrayOfJokes = array();
+  $allJokes = json_decode(file_get_contents('jokes.json'));
+  foreach ($allJokes as $item) {
+    array_push($arrayOfJokes,
+    array(
+      "id" => $item->id,
+      "setup"=> $item->setup,
+      "punchline"=> $item->punchline
+    )
+  );
+}
+return $arrayOfJokes;
+}
+
+/*
+  search list of jokes which match with first character of nicknam
+*/
+function searchByName($name){
+  $allJokes = getAllJokes();
+  $matchJokes = array();
+  foreach($allJokes as $item){
+    if(strpos($item['setup'],$name)){
+      array_push($matchJokes,$item);
+    }
+
+  }
+  return $matchJokes;
+}
+
+
+function randomJoke($name){
+  $jokes = searchByName($name);
+  $rand = rand(0,sizeof($jokes)-1);
+  $jokes[$rand]['score'] = strlen($jokes[$rand]['punchline']) + strlen($jokes[$rand]['setup']);
+  return $jokes[$rand];
+}
+
+/*
+ get random joke
+*/
+if(isset($_GET['name'])){
+  $data = randomJoke($_GET['name']);
+  echo responseData($data);
 }
 ?>

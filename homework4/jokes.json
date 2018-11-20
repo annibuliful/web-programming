@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "setup": "Algorithm",
+    "punchline": "Word used by programmers when they don't expain what they did"
+  },
+  {
+    "id": 2,
+    "setup": "Why do programmers always mix up Halloween and Christmas?",
+    "punchline": "Because Oct 31 == Dec 25"
+  },
+  {
+    "id": 3,
+    "setup": "A SQL query walks into a bar, walks up to two tables and asks...",
+    "punchline": "'Can I join you?'"
+  },
+  {
+    "id": 4,
+    "setup": "How many programmers does it take to change a lightbulb?",
+    "punchline": "None that's a hardware problem"
+  },
+  {
+    "id": 5,
+    "setup": "If you put a million monkeys at a million keyboards, one of them will eventually write a Java program",
+    "punchline": "the rest of them will write Perl"
+  },
+  {
+    "id": 6,
+    "setup": "To understand what recursion is...",
+    "punchline": "You must first understand what recursion is"
+  },
+  {
+    "id": 7,
+    "setup": "There are 10 types of people in this world...",
+    "punchline": "Those who understand binary and those who don't"
+  },
+  {
+    "id": 8,
+    "setup": "Which song would an exception sing?",
+    "punchline": "Can't catch me - Avicii"
+  },
+  {
+    "id": 9,
+    "setup": "Why do Java programmers wear glasses?",
+    "punchline": "Because they don't C#"
+  },
+  {
+    "id": 10,
+    "setup": "Lady: How do I spread love in this cruel world?",
+    "punchline": "Random Dude: [...💘]"
+  },
+  {
+    "id": 11,
+    "setup": "A user interface is like a joke.",
+    "punchline": "If you have to explain it then it is not that good."
+  },
+  {
+    "id": 12,
+    "setup": "What is OOP way to become wealthy",
+    "punchline": "Inheritance"
+  },
+  {
+    "id": 13,
+    "setup": "What is programmer's favourite hangout place ?",
+    "punchline": "Foo Bar"
+  },
+  {
+    "id": 14,
+    "setup": "0 is False and 1 is True, right?",
+    "punchline": "1"
+  },
+  {
+    "id": 15,
+    "setup": "What do computers and air condition have in common ?",
+    "punchline": "they are useless when you open window"
+  },
+  {
+    "id": 16,
+    "setup": "Why do Java programmers have to wear glasses ?",
+    "punchline": "Because they don't C#(see sharp)"
+  },
+  {
+    "id": 16,
+    "setup": "Why do you never ask SQL people to help you move your furniture?",
+    "punchline": "Because they sometimes drops the table"
+  }
+]

@@ -42,7 +42,7 @@ ob_start();
       $_SESSION['loginError'] = "";
       header( "location:welcome.php" );
     }else{
-      $_SESSION['loginError'] = "Wrong Username & Password";
+      $_SESSION['loginError'] = "Do you try to hack me ? I don't connect to database LOL<br>hint: l4g/123 , m4n/321";
     }
   }
 ?>
@@ -53,7 +53,7 @@ ob_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <title>Chuck Norris Joke</title>
+    <title>Programming Jokes</title>
   </head>
   <body>
     <img src="assets/header.jpg" id="header">
@@ -62,11 +62,11 @@ ob_start();
       <input type="text" name="username" placeholder="Username" autocomplete="off" required>
     </div>
     <div>
-      <input type="password" name="password" placeholder="Password" autocomplete="off" required>
+      <input class="input" type="password" name="password" placeholder="Password" autocomplete="off" required>
       <br><br>
       <button id="login-button" type="submit">Login</button>
     </div>
-      <p><?php echo $_SESSION['loginError']; ?></p>
+      <p class="text-red"><?php echo $_SESSION['loginError']; ?></p>
     </form>
   </body>
 </html>
