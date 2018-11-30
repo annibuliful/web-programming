@@ -8,9 +8,9 @@
     function render($result){
         foreach($result->statuses as $key => $value){
             echo "
-            <div class=\"col-md-12 col-sm-12 col-xs-12\">
-                <div class=\"card\">
-                <img src=\"{$value->user->profile_image_url}\" alt=\"Avatar\" style=\"width:100%\">
+            <div class=\"col-md-4 col-sm-6 col-xs-12\">
+                <div class=\"twitter-card\">
+                <img src=\"{$value->user->profile_image_url}\" alt=\"Avatar\">
                     <div>
                         <h4><b>{$value->user->name}</b></h4>
                         <p>{$value->text}</p>
@@ -28,18 +28,14 @@
           define("CONSUMER_SECRET","xKAQbiqcBLSWkwFoBkpRY0GiMGc47GQ6GfvcrYyV4ocN8AOnOn");
           define("ACCESS_TOKEN","1066363490539995136-abiVCRA2gR3feZeDInW0NzjIFYqE0J");
           define("ACCESS_TOKEN_SECRET","E3VT8DS2RZh4JLCwPVPNW4ZPLynnBLTY618uJh1OvPlg1");
-          function search(array $query){
-              $connection = new TwitterOAuth(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN,ACCESS_TOKEN_SECRET);
-              return $connection->get('search/tweets',$query);
-          }
+          $connection = new TwitterOAuth(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_TOKEN,ACCESS_TOKEN_SECRET);
 
           $query = array(
-            "q" => $_GET['key']."conference",
+            "q" => $_GET['key'],
             "count" => 30,
             "result_type"=>"recent",
           );
-
-          $result = search($query);
+          $result = $connection->get('search/tweets',$query);
           render($result);
     }
 

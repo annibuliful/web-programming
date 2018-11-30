@@ -1,4 +1,4 @@
-const APIkey = "AIzaSyBwdnMGnnef_olJQKcXr396eSmkCLGtrJs";
+const APIkey = "AIzaSyAWPB2dUkyPM0DAE0YYWpECUJoU-BmpRFU";
 const cx = "017576662512468239146:omuauf_lfve";
 
 function mapData(data) {
@@ -6,31 +6,36 @@ function mapData(data) {
     return {
       title: value.title,
       description: value.snippet,
-      link: value.link
+      link: value.link,
+      website: value.displayLink
     };
   });
 }
 
-function display(title, description, link) {
+function display(title, description, link, website) {
   return `
-  <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="card">
-        <div>
-          <h4><a href="${link}"><b>${title}</b></a></h4> 
-          <p>${description}</p> 
-        </div>
+  <div class="col-md-12 col-sm-12 col-sx-12 google-card">
+    <a href="${link}">
+      <div class="google-card-icon"></div>
+      <div class="google-card-detail">
+        <h4>${title}</h4>
+        <p>${website}</p>
+        <p>${description}</p>
       </div>
+    </a>
   </div>
   `;
 }
 $("#submit").on("click", function() {
+  $("#google-result").empty();
   let keyword = $("#searchinput").val();
   const URL = ` https://www.googleapis.com/customsearch/v1?key=${APIkey}&cx=${cx}&q=${keyword}`;
   $.get(URL, function(data, status) {
+    $(".header").show();
     const listOfData = mapData(data.items);
     listOfData.map(function(value) {
-      $("#custom-search").append(
-        display(value.title, value.description, value.link)
+      $("#google-result").append(
+        display(value.title, value.description, value.link, value.website)
       );
     });
   });
