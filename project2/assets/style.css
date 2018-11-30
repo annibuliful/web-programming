@@ -1,0 +1,97 @@
+* {
+  outline: none;
+}
+div.rowmenu {
+  margin-top: 5%;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.m-t {
+  margin-top: 30px;
+}
+.search-form {
+  width: 40vw;
+  margin-top: 5rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-form:hover {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.search-form > input,
+img {
+  display: inline-block;
+}
+
+.search-form > input {
+  font-size: 20px;
+  height: 40px;
+  border: none;
+  width: 80%;
+  margin: auto;
+}
+
+#submit {
+  margin-top: 30px;
+  display: block;
+  border-color: #276ee8;
+  background-color: rgb(39, 110, 232);
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+#submit:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card > div {
+  padding: 2px 16px;
+}
+
+.google-card {
+  border-radius: 10px;
+  border: 0.5px solid rgba(189, 189, 189, 0.5);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.8s;
+}
+
+.google-card:hover {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.google-card > h4,
+p {
+  text-align: left;
+  padding-left: 30px;
+}
+
+.google-card > p {
+  text-indent: 30px;
+  word-wrap: break-word;
+}
+
+@media only screen and (max-width: 1024px) {
+  .search-form {
+    width: 80vw;
+  }
+}
