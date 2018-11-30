@@ -9,7 +9,7 @@ function renderVideoCard(
   publishDate
 ) {
   return `
-  <div class="col-md-4 col-sm-12 col-xs-12">
+  <div class="col-md-6 col-sm-12 col-xs-12">
     <a href="http://www.youtube.com/embed/${youtubeId}">
       <div class="youtube-card-container">
         <div class="youtube-card-desktop">

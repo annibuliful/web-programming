@@ -8,14 +8,12 @@
     function render($result){
         foreach($result->statuses as $key => $value){
             echo "
-            <div class=\"col-md-4 col-sm-6 col-xs-12\">
-                <div class=\"twitter-card\">
+            <div class=\"col-md-6 col-sm-12 col-xs-12\">
+              <div class=\"twitter-card\">
                 <img src=\"{$value->user->profile_image_url}\" alt=\"Avatar\">
-                    <div>
-                        <h4><b>{$value->user->name}</b></h4>
-                        <p>{$value->text}</p>
-                    </div>
-                </div>
+                <h4><b>{$value->user->name}</b></h4>
+                <p>{$value->text}</p>
+              </div>
             </div>
             ";
         }
@@ -32,7 +30,7 @@
 
           $query = array(
             "q" => $_GET['key'],
-            "count" => 30,
+            "count" => 10,
             "result_type"=>"recent",
           );
           $result = $connection->get('search/tweets',$query);
