@@ -1,6 +1,7 @@
 const APIkey = "AIzaSyAWPB2dUkyPM0DAE0YYWpECUJoU-BmpRFU";
 const cx = "017576662512468239146:omuauf_lfve";
 
+// map data
 function mapData(data) {
   return data.map(function(value) {
     return {
@@ -11,7 +12,7 @@ function mapData(data) {
     };
   });
 }
-
+// google template card
 function display(title, description, link, website) {
   return `
   <div class="col-md-12 col-sm-12 col-sx-12 google-card">
@@ -26,6 +27,8 @@ function display(title, description, link, website) {
   </div>
   `;
 }
+
+// event listener
 $("#submit").on("click", function() {
   $("#google-result").empty();
   let keyword = $("#searchinput").val();

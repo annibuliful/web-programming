@@ -35,9 +35,15 @@ function renderVideoCard(
   </div>
   `;
 }
+
+/*
+ * mapping data to be new Array which return only the necessary datas
+ */
 function mapYoutubeData(data) {
   return data.map(value => {
+    // formate Unix time to be normal date
     const date = dayjs(value.snippet.publishedAt).format("DD / MMM / YYYY");
+    // In some case, the data will be playlist.
     if (value.id.videoId) {
       return {
         title: value.snippet.title,
@@ -59,13 +65,20 @@ function mapYoutubeData(data) {
     }
   });
 }
+
+/*
+ * event listener when user input keyword
+ */
 $("#submit").on("click", function() {
   $("#youtube-result").empty();
   let keyword = $("#searchinput").val();
   const URL = `https://content.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${keyword}&key=${apikey}`;
   $.get(URL, function(data, status) {
     $(".header").show();
+    // map data
     const allVideos = mapYoutubeData(data.items);
+
+    // iterate each data
     allVideos.map(value => {
       if (value.videoId) {
         const htmlTemplate = renderVideoCard(

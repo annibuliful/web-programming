@@ -6,7 +6,7 @@
 
     Use Sentiment\Analyzer;
 
-    // analysis 
+    // analysis
     function analysis_each_text($text){
       $analyzer = new Analyzer();
       $score = $analyzer->getSentiment($text);
@@ -20,6 +20,7 @@
         return json_encode($result);
     }
 
+    // map and filter the necessary data
     function map_data($list_tweet){
       $result = array();
 
@@ -34,16 +35,6 @@
           "positive" => $score['pos'],
           "neural" => $score['neu'])
         );
-
-          // echo "
-          // <div class=\"col-md-6 col-sm-12 col-xs-12\">
-          //   <div class=\"twitter-card\">
-          //     <img src=\"{$value->user->profile_image_url}\" alt=\"Avatar\">
-          //     <h4><b>{$value->user->name}</b></h4>
-          //     <p>{$value->text}</p>
-          //   </div>
-          // </div>
-          // ";
       }
       return $result;
     }
