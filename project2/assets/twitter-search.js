@@ -1,3 +1,50 @@
+function renderChart(positive, negative, neural) {
+  const myChart = new Chart(document.getElementById("myChart"), {
+    type: "pie",
+    data: {
+      labels: ["Positive", "Negative", "Neural"],
+      datasets: [
+        {
+          label: "Twitter sentiment analysis",
+          data: [positive, negative, neural],
+          backgroundColor: [
+            "rgba(0, 168, 42, 0.2)",
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(221, 209, 51, 0.2)"
+          ],
+
+          borderColor: [
+            "rgba(0, 168, 42, 1)",
+            "rgba(255, 99, 132, 1)",
+            "rgba(167, 123, 15, 1)"
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true
+            }
+          }
+        ]
+      }
+    }
+  });
+}
+
+function accumulateScore(data) {
+  return data.reduce((current, next) => {
+    return {
+      positive: current.positive + next.positive,
+      negative: current.negative + next.negative,
+      neural: current.neural + next.neural
+    };
+  });
+}
 function twitterTemplate(
   profileImage,
   userName,
@@ -27,7 +74,7 @@ $("#submit").on("click", function() {
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const listTweet = JSON.parse(this.responseText);
-      console.log(listTweet);
+      const score = accumulateScore(listTweet);
       listTweet.map(value => {
         $("#twitter-result").append(
           twitterTemplate(
@@ -40,6 +87,7 @@ $("#submit").on("click", function() {
           )
         );
       });
+      renderChart(score.positive, score.negative, score.neural);
     }
   };
   xmlhttp.open("GET", "api.php?key=" + keyword, true);
