@@ -1,22 +1,51 @@
 <?php
     //include library
     require "twitteroauth/autoload.php";
+    require "vendor/autoload.php";
     use Abraham\TwitterOAuth\TwitterOAuth;
 
+    Use Sentiment\Analyzer;
 
-    // render Card
-    function render($result){
-        foreach($result->statuses as $key => $value){
-            echo "
-            <div class=\"col-md-6 col-sm-12 col-xs-12\">
-              <div class=\"twitter-card\">
-                <img src=\"{$value->user->profile_image_url}\" alt=\"Avatar\">
-                <h4><b>{$value->user->name}</b></h4>
-                <p>{$value->text}</p>
-              </div>
-            </div>
-            ";
-        }
+    // analysis 
+    function analysis_each_text($text){
+      $analyzer = new Analyzer();
+      $score = $analyzer->getSentiment($text);
+      return $score;
+    }
+
+    // response data with JSON format
+    function response($result){
+      header('Content-type: application/json; charset=utf-8');
+      header('access-control-allow-origin: *');
+        return json_encode($result);
+    }
+
+    function map_data($list_tweet){
+      $result = array();
+
+      foreach($list_tweet->statuses as $key => $value){
+        $score = analysis_each_text($value->text);
+        array_push($result,
+        array(
+          "profileImage" => $value->user->profile_image_url,
+          "profileName" => $value->user->name,
+          "tweet" => $value->text,
+          "negative" => $score['neg'],
+          "positive" => $score['pos'],
+          "neural" => $score['neu'])
+        );
+
+          // echo "
+          // <div class=\"col-md-6 col-sm-12 col-xs-12\">
+          //   <div class=\"twitter-card\">
+          //     <img src=\"{$value->user->profile_image_url}\" alt=\"Avatar\">
+          //     <h4><b>{$value->user->name}</b></h4>
+          //     <p>{$value->text}</p>
+          //   </div>
+          // </div>
+          // ";
+      }
+      return $result;
     }
 
     // https://twitteroauth.com/
@@ -34,7 +63,7 @@
             "result_type"=>"recent",
           );
           $result = $connection->get('search/tweets',$query);
-          render($result);
+          echo response(map_data($result));
     }
 
 ?>
