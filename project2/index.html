@@ -14,6 +14,7 @@
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <link rel="stylesheet" href="assets/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://unpkg.com/dayjs"></script>
@@ -48,13 +49,12 @@
         <div class="container m-t">
           <div class="row" id="twitter-result"></div>
         </div>
+        <h1 class="header">Twitter Sentiment analysis graph</h1>
+        <div style="width: 40vw; margin: auto;">
+          <canvas id="myChart"></canvas>
+        </div>
       </div>
     </div>
-    <!-- <footer>
-      <p>Posted by: Hege Refsnes</p>
-      <p>Contact information: <a href="mailto:someone@example.com">
-      someone@example.com</a>.</p>
-    </footer> -->
     <script type="text/javascript" src="assets/youtube_api.js"></script>
     <script type="text/javascript" src="assets/custom_search_api.js"></script>
     <script type="text/javascript" src="assets/twitter-search.js"></script>
